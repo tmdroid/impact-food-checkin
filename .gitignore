@@ -1,0 +1,5 @@
+dist/
+node_modules/
+inscrisi.json
+.idea/
+src/util/credentials.ts
