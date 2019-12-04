@@ -5,11 +5,9 @@ class Utilities {
      *
      * @returns string
      */
-    public static getDayNumber = (): number => {
+    public static getCurrentDayOfMonth = (): number => {
         const today: Date = new Date();
-        const day = today.getDay();
-
-        return /* day || */ 29;
+        return today.getDay();
     };
 
 

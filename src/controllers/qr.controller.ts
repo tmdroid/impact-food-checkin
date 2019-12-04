@@ -37,7 +37,7 @@ export default class QrController {
     static getMeals = async (request: Request, response: Response) => {
 
         const code = request.query.code;
-        const day = request.query.day;
+        let day = request.query.day;
 
         if (code) {
 
@@ -47,7 +47,9 @@ export default class QrController {
                     .send('User not found');
             }
 
-            // const day = Utilities.getDayNumber();
+            if(!day) {
+                day = Utilities.getCurrentDayOfMonth();
+            }
 
             const meals: DailyMeals = user.m_rezervate[day]
             if(meals === undefined || meals === null) {
@@ -80,7 +82,7 @@ export default class QrController {
     static consumeMeal = async (request: Request, response: Response) => {
         const code = request.body.code;
         const mealNumber = request.body.meal;
-        const day = request.body.day;
+        let day = request.body.day;
 
         if (code && mealNumber) {
 
@@ -91,7 +93,9 @@ export default class QrController {
             }
 
             const meal: string = Utilities.getMealValue(mealNumber);
-            // const day: number = Utilities.getDayNumber();
+            if(!day) {
+                day = Utilities.getCurrentDayOfMonth();
+            }
 
             if (day && meal && user.hasMeal(day, meal)) {
                 const meals: DailyMeals = await user.eatMeal(day, meal);
