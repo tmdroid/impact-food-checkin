@@ -1,5 +1,6 @@
-import App from './app'
+require('dotenv').config();
 
+import App from './app'
 import * as bodyParser from 'body-parser'
 
 import QrController from './controllers/qr.controller'

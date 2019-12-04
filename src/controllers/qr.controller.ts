@@ -1,7 +1,7 @@
 import express, {Request, Response} from 'express'
 import Users from './../models/user.model'
 import Utilities from '../util/utilities'
-import {DailyMeals, IUser, IUserModel} from "../interfaces/user.interface";
+import {DailyMeals, IUser} from "../interfaces/user.interface";
 
 export default class QrController {
 

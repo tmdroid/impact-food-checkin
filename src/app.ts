@@ -1,6 +1,7 @@
 import express, {Application} from 'express'
 import mongoose, {Connection} from 'mongoose'
-import {database_url} from "./util/credentials";
+
+const database_url = process.env.IMPACT_DATABASE_URL
 
 export default class App {
 

@@ -1,9 +1,9 @@
-import {database_url} from "./src/util/credentials";
-
 let inscrisi = require('./inscrisi');
 const mongoose = require('mongoose');
 const crypto = require('crypto');
 const User = require('./dist/models/user.model');
+
+const database_url = process.env.IMPACT_DATABASE_URL
 
 const toateMesele = {
     29: {
