@@ -4,3 +4,4 @@ inscrisi.json
 .idea/
 src/util/credentials.ts
 .env
+ssl/
