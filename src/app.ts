@@ -12,7 +12,7 @@ export default class App {
     private db: Connection
     private options = {
         key: fs.readFileSync('./ssl/privatekey.pem'),
-        certificate: fs.readFileSync('./ssl/certificate.pem'),
+        cert: fs.readFileSync('./ssl/certificate.pem'),
     }
 
     constructor(appInit: { port: number; middleWares: any; controllers: any; }) {
