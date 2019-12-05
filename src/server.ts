@@ -6,7 +6,7 @@ import * as bodyParser from 'body-parser'
 import QrController from './controllers/qr.controller'
 
 const app = new App({
-    port: 5000,
+    port: 443,
     controllers: [
         new QrController()
     ],

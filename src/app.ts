@@ -1,5 +1,7 @@
 import express, {Application} from 'express'
 import mongoose, {Connection} from 'mongoose'
+import https from 'https'
+import fs from 'fs'
 
 const database_url = process.env.IMPACT_DATABASE_URL
 
@@ -8,6 +10,10 @@ export default class App {
     private app: Application
     private readonly port: number
     private db: Connection
+    private options = {
+        key: fs.readFileSync('./ssl/privatekey.pem'),
+        certificate: fs.readFileSync('./ssl/certificate.pem'),
+    }
 
     constructor(appInit: { port: number; middleWares: any; controllers: any; }) {
         this.app = express()
@@ -39,7 +45,7 @@ export default class App {
     }
 
     public listen() {
-        this.app.listen(this.port, () => {
+        https.createServer(this.options, this.app).listen(this.port, () => {
             console.log(`App listening on the http://localhost:${this.port}`)
         })
     }
