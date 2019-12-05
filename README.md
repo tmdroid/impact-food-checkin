@@ -28,7 +28,7 @@ This example will look for user with qr code `<qr>` and will return his/her meal
 # `POST /qr`
 
 ```http
-GET /qr HTTP/1.1
+POST /qr HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
 
 code=<qr>&meal=1&day=31
