@@ -5,3 +5,4 @@ inscrisi.json
 src/util/credentials.ts
 .env
 ssl/
+qr_codes*
